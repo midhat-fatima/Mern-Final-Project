@@ -5,7 +5,7 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     //LOGIN_FAIL,
-    LOGOUT,
+    COMPANY_LOGOUT,
     ACCOUNT_DELETED
   } from '../actions/types';
   
@@ -37,7 +37,7 @@ import {
         };
       case ACCOUNT_DELETED:
       case AUTH_ERROR:
-      case LOGOUT:
+      case COMPANY_LOGOUT:
         return {
           ...state,
           token: null,

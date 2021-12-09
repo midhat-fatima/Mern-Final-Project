@@ -20,6 +20,7 @@ import NotFound from './components/layout/NotFound';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CompanyPrivateRoute from './components/routing/PrivateRoute';
 import { LOGOUT } from './actions/types';
+import { COMPANY_LOGOUT } from './actions/types';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -45,6 +46,7 @@ const App = () => {
     // log user out from all tabs if they log out in one tab
     window.addEventListener('storage', () => {
       if (!localStorage.token) store.dispatch({ type: LOGOUT });
+      if (!localStorage.token) store.dispatch({ type: COMPANY_LOGOUT });
     });
   }, []);
 

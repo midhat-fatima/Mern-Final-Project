@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import { companylogout } from '../../actions/company_auth';
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
@@ -28,6 +29,23 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     </ul>
   );
 
+  const companyauthLinks = (
+    <ul>
+      <li>
+        <Link to="/companydashboard">
+          <i className="fas fa-user" />{' '}
+          <span className="hide-sm">Company Dashboard</span>
+        </Link>
+      </li>
+      <li>
+        <a onClick={companylogout} href="#!">
+          <i className="fas fa-sign-out-alt" />{' '}
+          <span className="hide-sm">Company Logout</span>
+        </a>
+      </li>
+    </ul>
+  );
+
   const guestLinks = (
     <ul>
       <li>
@@ -39,7 +57,13 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <li>
         <Link to="/login">Login</Link>
       </li>
-    </ul>
+    <li>
+      <Link to="/companyregister">Company Register</Link>
+    </li>
+    <li>
+      <Link to="/companylogin">Company Login</Link>
+    </li>
+  </ul>
   );
 
   return (
@@ -56,6 +80,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
+  // companylogout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -63,4 +88,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps)(Navbar);

@@ -7,7 +7,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  COMPANY_LOGOUT
 } from './types';
 
 /*
@@ -83,4 +83,4 @@ export const companylogin = (email, password) => async (dispatch) => {
 };
 
 // Logout
-export const logout = () => ({ type: LOGOUT });
+export const companylogout = () => ({ type: COMPANY_LOGOUT });

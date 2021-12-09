@@ -5,7 +5,11 @@ import PropTypes from 'prop-types';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
-    return <Navigate to="/dashboard,/companydashboard" />;
+    return <Navigate to="/dashboard" />;
+  }
+
+  if (isAuthenticated) {
+    return <Navigate to="/companydashboard" />;
   }
 
   return (
